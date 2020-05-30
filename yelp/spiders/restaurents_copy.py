@@ -21,7 +21,8 @@ class RestaurentsSpider(scrapy.Spider):
 
     def parse(self, response):
         comname = response.xpath('//div[@class="lemon--div__373c0__1mboc margin-t3__373c0__1l90z margin-b6__373c0__2Azj6 border-color--default__373c0__3-ifU"]//h1/text()').get()
-        web = response.xpath('//div[@class="lemon--div__373c0__1mboc stickySidebar__373c0__3PY1o border-color--default__373c0__3-ifU"]//p/a[@target="_blank"]/text()').get()
+        #web = response.xpath('//div[@class="lemon--div__373c0__1mboc stickySidebar__373c0__3PY1o border-color--default__373c0__3-ifU"]//p/a[@target="_blank"]/text()').get()
+        web = response.xpath('//span[@class="lemon--span__373c0__3997G icon__373c0__ehCWV icon--24-external-link-v2 icon--v2__373c0__1yp8c icon__373c0__3n-2P"]/../..//a/text()').get()
         website = ''
         if web != None:
             x = web.split('/')
